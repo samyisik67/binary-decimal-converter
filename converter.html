@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Binary-Decimal Converter</title>
+</head>
+<body BGCOLOR="white">
+    <div id="ToBinConverter" style="float: right; background-color: #00B8DE; padding: 10px;">
+        Decimal to binary converter:
+        <br />
+        <input id="deciCodingIntegers1" maxlength="15" size="10" type="text">
+        <button onclick="dec2binCodingIntegers1()">Convert</button>
+        <br />
+        <div id="DtBConvCodingIntegers1"></div>
+    </div>
+
+    <div id="BinToDecConverter" style="float: right; background-color: #F32A73; color: white; padding: 10px;">
+        Binary to decimal converter:
+        <br />
+        <input id="binarCodingIntegers1" maxlength="80" size="20" type="text">
+        <button onclick="bin2decCodingIntegers1()">Convert</button>
+        <br />
+        <div id="BtDConvCodingIntegers1"></div>
+    </div>
+
+    <script type="text/javascript">
+        function dec2binCodingIntegers1() {
+            let x = document.getElementById("deciCodingIntegers1").value;
+            if (/[^0-9]/.test(x) || x === "") {
+                alert("You must enter a valid integer!");
+                return;
+            }
+            let bin = parseInt(x, 10).toString(2);
+            document.getElementById("DtBConvCodingIntegers1").innerHTML = `(${x})<sub>10</sub> = (<b>${bin}</b>)<sub>2</sub>`;
+        }
+
+        function bin2decCodingIntegers1() {
+            let x = document.getElementById("binarCodingIntegers1").value;
+            if (/[^01]/.test(x) || x === "") {
+                alert("You must enter a valid binary string!");
+                return;
+            }
+            let dec = parseInt(x, 2);
+            document.getElementById("BtDConvCodingIntegers1").innerHTML = `(${x})<sub>2</sub> = (<b>${dec}</b>)<sub>10</sub>`;
+        }
+    </script>
+</body>
+</html>
